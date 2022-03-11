@@ -1,5 +1,5 @@
 
-import render from './renderjs' 
+
 const addInput = document.querySelector(".card input");
 const list = document.querySelector(".list");
 const addBtn = document.querySelector(".btn_add");
@@ -9,7 +9,7 @@ let data = [
     {"content":'把冰箱發霉檸檬丟掉',"state":true},
     {"content":'寫功課',"state":false}
 ];
-console.log(render);
+
 const renderAll = function()
 {//顯示全部
     let str='';
