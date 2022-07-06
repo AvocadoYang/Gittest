@@ -5,6 +5,9 @@ const list = document.querySelector(".list");
 const addBtn = document.querySelector(".btn_add");
 const wait = document.querySelector(".todoWait");
 const tab = document.querySelector(".tab");
+const deleteAll = document.querySelector(".deleteAll");
+
+
 let data = [
     {"content":'把冰箱發霉檸檬丟掉',"state":true},
     {"content":'寫功課',"state":false}
@@ -165,5 +168,25 @@ list.addEventListener('click',(e) =>
         wait.innerHTML = `${count}個待完成項目`;
     
 })
-
-
+// //刪除所有代辦
+// deleteAll.addEventListener("click",(e)=>{
+//     console.log(data);
+//     e.preventDefault();
+//     let indexTest = 0
+//     let count = 1;
+//     data.forEach((item,index) =>{
+//         indexTest = index;
+//         if(item['state'] == false){
+            
+//             while(data[indexTest+1]['state'] ==false){
+//                 count += 1;
+//                 indexTest +=1;
+//             }
+//         data.splice(index,count);
+//         count = 1;
+//         indexTest = 0;  
+//         }
+        
+//     })
+//     renderAll();
+// })

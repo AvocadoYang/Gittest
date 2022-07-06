@@ -81,6 +81,7 @@ input[type=text]::placeholder {
   background: #333;
   color: #fff;
   font-size: 2rem;
+  padding-bottom: 5px;
   text-decoration: none;
 }
 
@@ -99,10 +100,12 @@ input[type=text]::placeholder {
   width: 100%;
   border-bottom: 2px solid #efefef;
 }
-.tab li.active {
+
+.tab li:hover{
   border-bottom: 2px solid #333;
   color: #333;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .cart_content {
@@ -134,10 +137,11 @@ input[type=text]::placeholder {
   display: block;
   width: 1rem;
   height: 1rem;
-  background: #000;
-  background-image: url("https://i.imgur.com/7Q4RjFx.jpg");
+  background: black;
+  background-image: url("./7Q4RjFx.jpeg");
   background-size: contain;
 }
+
 @media (max-width: 575px) {
   .list li a.delete {
     opacity: 1;

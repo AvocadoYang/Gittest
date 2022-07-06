@@ -71,6 +71,7 @@ function renderData(inputData) {
 
 //種類判斷鍵
 btn.addEventListener('click', e => {
+    console.dir(e.target);
     if (e.target.nodeName === 'BUTTON') {
         arr = [];
         allData.forEach(item => {
@@ -81,36 +82,40 @@ btn.addEventListener('click', e => {
         renderData(arr);
     }
 })
-
+    let searchArr = [];
 //篩選關鍵字產品
  input.addEventListener('click', e => {
      if (e.target.nodeName === 'BUTTON') {
-        searhValue=inputText.value.trim();
-         let searchArr = [];
+         
+        searchArr = [];
          searhValue = inputText.value.trim();
-         if (searhValue.trim()== '') {
+         if (searhValue.trim()== '' ) {
              alert('請輸入關鍵字');
              return ;
-         }
-        else{
-            searchArr = allData.filter(item => {
-                if(item['作物名稱']==null){
-                    return;
-                }
-                else{
-                return item['作物名稱'].match(searhValue);//如果產品名稱符合關鍵字則回傳產品名稱，若不符合則回傳null。
-                }
-            })   
-        }
-        if(searchArr.length==0){
-            list.innerHTML = `<tr><td colspan="6" class="text-center p-3">查詢不到交易資訊</td></tr>`
-        }  
-        else{
-        searhValue = ''; 
-        renderData(searchArr); 
-        }
- }} )
+            }
+            else{
+                searchArr = allData.filter(item => {
+                    if(item['作物名稱']==null){
+                        return;
+                    }
+                    else{
+                        return item['作物名稱'].match(searhValue);//如果產品名稱符合關鍵字則回傳產品名稱，若不符合則回傳null。
+                    }
+                })   
+            }
+            if(searchArr.length==0){
+                list.innerHTML = `<tr><td colspan="6" class="text-center p-3">查詢不到交易資訊</td></tr>`
+            }  
+            else{
+                searhValue = ''; 
+                renderData(searchArr); 
+            }
+            
 
+        
+        }inputText.value = ''} )
+        
+        
 
  //排序方式
 // select.addEventListener('change',selectButton)
@@ -131,7 +136,7 @@ btn.addEventListener('click', e => {
      function switchSelect(e){
        switch(e.target.value){
          case "依上價排序":
-           console.log(123)
+            selectChange("上價")
            break;
          case "依中價排序":
            selectChange("中價");
@@ -149,4 +154,13 @@ btn.addEventListener('click', e => {
            break;
        }
      }
+
+
+     
+function selectChange(value){
+    let newArr = searchArr.sort((a,b) => b[value] - a[value])
+    console.log(newArr);
+    
+    
+}
 
